@@ -326,7 +326,7 @@
       .writeXmlTag("cvParam", intend=3, file=file,
                    attrs=c(cvRef="MS", accession="MS:1000515",
                            name="intensity array", unitCvRef="MS",
-                           unitAccession="MS:1000131"))
+                           unitAccession="MS:1000131", unitName="number of counts"))
 
       for (i in seq(along=accession)) {
         .writeXmlTag("cvParam", intend=3, file=file,
@@ -380,7 +380,7 @@
     for (i in seq(along=accession)) {
       .writeXmlTag("cvParam", intend=6, file=file,
                    attrs=c(cvRef="IMS", accession=accession[i], name=name[i],
-                           value=value[i]))
+                           value=format(value[i], scientific=FALSE)))
     }
     .writeCloseXmlTag("scan", intend=5, file=file)
   .writeCloseXmlTag("scanList", intend=4, file=file)
@@ -410,7 +410,7 @@
     for (i in seq(along=accession)) {
       .writeXmlTag("cvParam", intend=6, file=file,
                    attrs=c(cvRef="IMS", accession=accession[i], name=name[i],
-                           value=value[i]))
+                           value=format(value[i], scientific=FALSE)))
     }
     .writeXmlTag("binary", intend=6, file=file)
   .writeCloseXmlTag("binaryDataArray", intend=5, file=file)
